@@ -2,9 +2,13 @@ name: Node.js Backend CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - develop
+
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   test:
