@@ -1,27 +1,9 @@
-const express = require("express");
+const request = require("supertest");
+const app = require("../src/server");
 
-const app = express();
+test("GET /api/health returns ok", async () => {
+    const response = await request(app).get("/api/health");
 
-app.use(express.json());
-
-app.get("/", (req, res) => {
-    res.json({
-        message: "Node backend is running"
-    });
+    expect(response.statusCode).toBe(200);
+    expect(response.body.status).toBe("ok");
 });
-
-app.get("/api/health", (req, res) => {
-    res.json({
-        status: "failed"
-    });
-});
-
-const PORT = process.env.PORT || 3000;
-
-if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
-}
-
-module.exports = app;

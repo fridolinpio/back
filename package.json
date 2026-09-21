@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests yet\"",
-    "lint": "eslint ."
-  },
+  "test": "jest",
+  "lint": "eslint ."
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
